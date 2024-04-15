@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+Sign Up for DS Badminton
+{% endblock %}
+
+{% block content %}
+<button onclick="history.back()">Go Back</button> <br><br>
+<h1 style="color: white">Sign Up</h1>
+<form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" >Sign Up</button>
+</form> 
+{% endblock %}

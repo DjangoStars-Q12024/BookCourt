@@ -15,8 +15,11 @@ Class-based views
     2. Add a URL to path('blog/'include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),   
+    path('', include('BadmintonCourt.urls')), 
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls'))
 ]

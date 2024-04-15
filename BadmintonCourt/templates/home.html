@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+DS Badminton - Home
+{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<img src="{% static 'images/baddy.jpg' %}" alt="badminton">
+{% endblock %}

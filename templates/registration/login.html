@@ -13,17 +13,18 @@
 {% endif %}
 {% endif %}
 
-<h1>Log In DS Badminton</h1>
+
+<h1 style="color: white">Log In DS Badminton</h1>
 <hr>
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 <table>
   <tr>
-    <td>{{ form.username.label_tag }}</td>
+    <td style="color: white">{{ form.username.label_tag }}</td>
     <td>{{ form.username }}</td>
   </tr>
   <tr>
-    <td>{{ form.password.label_tag }}</td>
+    <td style="color: white">{{ form.password.label_tag }}</td>
     <td>{{ form.password }}</td>
   </tr>
 </table>
@@ -31,7 +32,8 @@
 <input type="hidden" name="next" value="{{ next }}">
 </form>
 <br>
-<h5>Or sign up with this link:</h5>
-<a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+<h5 style="color: white">Or sign up with this link:</h5>
+<a class="nav-link" style="color: white" href="{% url 'signup' %}">Sign Up</a>
+
 
 {% endblock %}

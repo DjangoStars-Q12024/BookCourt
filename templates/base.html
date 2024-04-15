@@ -12,8 +12,9 @@
 <body>
     <header class="header">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
             <div class="container">
+                <img src="{% static 'images/DSB_Logo.png' %}" alt="Logo" width="60" height="60">
 
                 <a class="navbar-brand" href="/">DS Badminton</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +26,10 @@
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <!-- <a class="nav-link" href="">Book Court</a> -->
+                            <a class="nav-link" href="">Book Court</a>
                         </li>
                         <li class="nav-item">
-                            <!-- <a class="nav-link" href="">Account</a> -->
+                            <a class="nav-link" href="{% url 'login' %}">Account</a>
                         </li>
                         <li class="nav-item" >
                             {% if user.is_authenticated %}
@@ -51,11 +52,12 @@
     </div>
     
     <div class="footer">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
             <div class="container-fluid">
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a></li>
                     <li class="nav-item">
                         <!-- <a class="nav-link" href="">Book Court</a> -->
                     </li>

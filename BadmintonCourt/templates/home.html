@@ -1,17 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
-DS Badminton  - Home
+DS Badminton - Home
 {% endblock %}
 
 {% block content %}
-    <h1>Home</h1>
-    <hr>
-    <div>
+<style>
+    .container {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+</style>
 
-        <h4>Welcome back</h4>
-        
-        <p>Select a tab from the navigation bar</p>
-
-    </div>
-
+<img src="{% static 'images/baddy.jpg' %}" alt="badminton">
 {% endblock %}

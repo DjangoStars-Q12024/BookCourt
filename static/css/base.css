@@ -1,12 +1,10 @@
 body {
     background-color: #000000;
-    color: white;
 }
 .header {
     background-color: #000000;
-    padding: 20px;
     text-align: center;
-    color: white;
+    padding: 20px;
 }
 .footer {
     background-color: #000000;
@@ -15,5 +13,5 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    color: white;
 }
+

@@ -13,7 +13,17 @@
 {% endif %}
 {% endif %}
 
+<style>
+  .center-container {
+    position: absolute;
+            top: 50%;
+            left: 50%;
+            
+  }
+</style>
 
+<div class="center-container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
 <h1 style="color: white">Log In DS Badminton</h1>
 <hr>
 <form method="post" action="{% url 'login' %}">
@@ -32,8 +42,10 @@
 <input type="hidden" name="next" value="{{ next }}">
 </form>
 <br>
-<h5 style="color: white">Or sign up with this link:</h5>
+<h6 style="color: white">Or sign up with this link:</h6>
 <a class="nav-link" style="color: white" href="{% url 'signup' %}">Sign Up</a>
+</div>
+
 
 
 {% endblock %}

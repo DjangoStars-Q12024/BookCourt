@@ -46,6 +46,6 @@ class NBooking(models.Model):
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        self.court.available = True  # Set the court as available when a booking is cancelsled
+        self.court.available = True  # Set the court as available when a booking is cancelled
         self.court.save()
         super().delete(*args, **kwargs)

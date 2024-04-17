@@ -6,44 +6,50 @@
 
 {% if next %}
 {% if user.is_authenticated %}
-  <p>Your account doesn't have access to this page. To proceed,
+<p>Your account doesn't have access to this page. To proceed,
   please login with an account that has access.</p>
 {% else %}
-  <p>Please login to see this page.</p>
+<p>Please login to see this page.</p>
 {% endif %}
 {% endif %}
 
 <style>
   .center-container {
     position: absolute;
-            top: 50%;
-            left: 50%;
-            
+    top: 50%;
+    left: 50%;
   }
+  .login-button {
+    background-color: #8c52ff;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 30%;
+}
 </style>
 
 <div class="center-container">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
-<h1 style="color: white">Log In DS Badminton</h1>
-<hr>
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-  <tr>
-    <td style="color: white">{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-  </tr>
-  <tr>
-    <td style="color: white">{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-  </tr>
-</table>
-<input type="submit" value="Login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
-<br>
-<h6 style="color: white">Or sign up with this link:</h6>
-<a class="nav-link" style="color: white" href="{% url 'signup' %}">Sign Up</a>
+  <h1 style="color: white">Log In DS Badminton</h1>
+  <hr>
+  <form method="post" action="{% url 'login' %}"> 
+    {% csrf_token %}
+    <table> 
+      <tr>
+        <td style="color: white">{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td> 
+      </tr> 
+      <tr>
+        <td style="color: white">{{ form.password.label_tag }}</td> 
+        <td>{{ form.password }}</td> 
+      </tr>
+    </table><br>
+    <input type="submit" class="login-button"  value="Login"> 
+    <input type="hidden" name="next" value="{{ next }}"> 
+  </form>
+  <br>
+  <h6 style="color: white">Or sign up with this link:</h6>
+  <a class="nav-link" style="color: #8c52ff" href="{% url 'signup' %}">Sign Up</a>
 </div>
 
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class court(models.Model):
@@ -9,8 +10,12 @@ class court(models.Model):
     amount = models.FloatField()
     available = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.courtName
+
+
 class MBooking(models.Model):
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         User, 
         on_delete=models.CASCADE, 
         related_name='member',
@@ -30,6 +35,8 @@ class MBooking(models.Model):
         self.court.available = True  # Set the court as available when a booking is cancelled
         self.court.save()
         super().delete(*args, **kwargs)
+    def __str__(self):
+        return f"{self.user.first_name} - {self.court}"
 
 class NBooking(models.Model):
     firstName = models.TextField()
@@ -49,3 +56,6 @@ class NBooking(models.Model):
         self.court.available = True  # Set the court as available when a booking is cancelled
         self.court.save()
         super().delete(*args, **kwargs)
+
+    def __str__(self):
+        return self.firstName

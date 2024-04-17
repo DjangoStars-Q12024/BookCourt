@@ -39,13 +39,13 @@
                             <a class="nav-link" href="/booking/">Book Court</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Account</a>
+                            <a class="nav-link" href="{% url 'useraccount' %}">Account</a>
                         </li>
                         <li class="nav-item" >
                             {% if user.is_authenticated %}
                             <form method="post" action="{% url 'custom_logout' %}">
                                 {% csrf_token %}
-                                <button type="submit" style="font-weight: bold; border-style: none; background-color: transparent; margin-top: 10%;">Log Out</button>
+                                <button type="submit" style="font-weight: bold; border-style: none; background-color: transparent; margin-top: 10%; color: white;">Log Out</button>
                             </form>
                             
                             {% endif %}

@@ -4,6 +4,7 @@ from django.views.generic import CreateView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 
+
 # Create your views here.
 class SignUpView(CreateView):
     form_class = UserCreationForm
@@ -16,3 +17,4 @@ class CustomLogoutView(TemplateView):
     def post(self, request):
         logout(request)
         return redirect('custom_logout')
+    

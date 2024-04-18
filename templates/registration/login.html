@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p style="color: white;">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 {% if next %}
@@ -14,16 +14,21 @@
 
 <style>
   .center-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    text-align: center;
+    
   }
+  table {
+    display: inline-block;
+  }
+
   .login-button {
     background-color: #8c52ff;
     color: white;
     border-radius: 10px;
     padding: 5px;
-    width: 30%;
+    width: 15%;
+    margin-top: 20px;
+    
 }
 </style>
 
@@ -35,7 +40,7 @@
     {% csrf_token %}
     <table> 
       <tr>
-        <td style="color: white">{{ form.username.label_tag }}</td>
+        <td style="color: white;">{{ form.username.label_tag }}</td>
         <td>{{ form.username }}</td> 
       </tr> 
       <tr>
@@ -48,7 +53,7 @@
   </form>
   <br>
   <h6 style="color: white">Or sign up with this link:</h6>
-  <a class="nav-link" style="color: #8c52ff" href="{% url 'signup' %}">Sign Up</a>
+  <a class="nav-link" style="color: #8c52ff; font-weight: bold; width: max-content; display: inline-block;" href="{% url 'signup' %}">Sign Up</a>
 </div>
 
 

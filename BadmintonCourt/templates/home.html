@@ -7,16 +7,47 @@ DS Badminton - Home
 {% block content %}
 <style>
     .background-container {
-    background-image: url('static/images/baddy.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-        }
+        margin-top: -60px;
+        margin-bottom: 150px;
+        background-image: url('static/images/baddy.jpg');
+        background-size: 100% 100%;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        border-style:solid;
+        border-width: 2px;
+        border-color: white;
+    }
+
+    .homebuttons {
+        display: flex;
+	    justify-content: space-around;
+    }   
+    .homebutton {
+        color: white;
+        padding:60px;
+        background-color: black;
+        border-style: none;
+        margin-top: 400px;
+    }
 
 
 </style>
 
 
-<div class="background-container"></div>
+<div class="background-container">
+
+    <div class="homebuttons">
+        <a href="{% url 'booking' %}">
+            <button class="homebutton">BOOK A COURT</button>
+        </a>
+        <a href="">
+            <button class="homebutton">JOIN A CLUB</button>
+        </a>
+        <a href="{% url 'useraccount' %}">
+            <button class="homebutton">MY ACCOUNT</button>
+        </a>
+    </div>
+
+</div>
 {% endblock %}

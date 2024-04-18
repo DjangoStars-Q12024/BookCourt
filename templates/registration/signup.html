@@ -8,32 +8,43 @@ Sign Up for DS Badminton
 <style>
   .center-container {
     position: absolute;
- 
+    left: 40%;
   }
+
   .signup-button {
     background-color: #8c52ff;
     color: white;
     border-radius: 10px;
     padding: 5px;
-    width: 20%;
-}
-.goback-button {
+    width: 30%;
+  }
+
+  .goback-button {
     background-color: #8c52ff;
     color: white;
     border-radius: 10px;
     padding: 5px;
-    width: 20%;
-}
+    width: 30%;
+  }
 
+  .button-container {
+    display: flex;
+  }
+
+  .button-container button {
+    margin-right: 10px;
+  }
 </style>
 
 <div class="center-container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
-<button onclick="history.back()" class="goback-button">Go Back</button> <br><br>
-<h1 style="color: white">Sign Up</h1> <br>
-<form style="color: white ;" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="signup-button" >Sign Up</button>
-</form> 
-{% endblock %}
+  <h1 style="color: white">Sign Up</h1> <br>
+  <div class="button-container">
+    <form style="color: white ;" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <br>
+      <button onclick="history.back()" class="goback-button">Go Back</button>
+      <button type="submit" class="signup-button">Sign Up</button>
+  </div>
+  </form>
+  {% endblock %}

@@ -14,7 +14,103 @@ DS Badminton - Home
     .white-line{
         border-top:2px solid white;
     }
+
+    .tablestyle{
+        color: white;
+    }
+    table, th, td {
+        border: 3px solid white;
+    }
 </style>
+
+<!-- <div class="tablestyle">
+    <table style="width:80%">
+        <tr style="font-size: 18pt;">
+          <th>Time/Court</th>
+          <th>Court 1</th>
+          <th>Court 2</th>
+          <th>Court 3</th>
+        </tr>
+        <tr>
+            <td>8:00-9:00</td>
+            <td>Slot 1</td>
+            <td>Slot 1</td>
+            <td>Slot 1</td>
+        </tr>
+        <tr>
+            <td>9:00-10:00</td>
+            <td>Slot 2</td>
+            <td>Slot 2</td>
+            <td>Slot 2</td>
+        </tr>
+        <tr>
+            <td>10:00-11:00</td>
+            <td>Slot 3</td>
+            <td>Slot 3</td>
+            <td>Slot 3</td>
+        </tr>
+      </table>
+</div> -->
+
+    <div class="tablestyle">
+        <table style="width:80%">
+            <tr style="font-size: 18pt;">
+            <th>Time/Court</th>
+                <th>Court 1</th>
+                <th>Court 2</th>
+                <th>Court 3</th>
+            </tr>
+            </tr>
+            <tr>
+            <td>8:00-9:00</td>
+            <td>
+                {% for court in object_list %}
+                    {% if court.courtName == "Court1 8-9" %}
+                        {% if court.available == True %}
+                            <a href="{% if user.is_authenticated %}{% url 'mbook' %}{% else %}{% url 'nbook' %}{% endif %}">
+                                Select
+                            </a>
+                        {% elif court.available == False %}
+                            Booked
+                        {% else %}
+                            Unavailable
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for court in object_list %}
+                    {% if court.courtName == "Court2 8-9" %}
+                        {% if court.available == True %}
+                            <a href="{% if user.is_authenticated %}{% url 'mbook' %}{% else %}{% url 'nbook' %}{% endif %}">
+                                Select
+                            </a>
+                        {% elif court.available == False %}
+                            Booked
+                        {% else %}
+                            Unavailable
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for court in object_list %}
+                    {% if court.courtName == "Court3 8-9" %}
+                        {% if court.available == True %}
+                            <a href="{% if user.is_authenticated %}{% url 'mbook' %}{% else %}{% url 'nbook' %}{% endif %}">
+                                Select
+                            </a>
+                        {% elif court.available == False %}
+                            Booked
+                        {% else %}
+                            Unavailable
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </td>
+            </tr>
+        </table>
+    </div>
 
 <a href='mbook'>Member Booking Link</a>
 <br>

@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import court, MBooking, NBooking
 # Create your views here.
 class HomeView(TemplateView):
+    
     template_name = 'home.html'
 
-def booking(request):
-
-    return render(request, 'booking.html')
+class BookTableView(ListView):
+    model = court
+    template_name = 'booking.html'
 
 class MBookView(TemplateView):
     template_name = 'mbookingForm.html'

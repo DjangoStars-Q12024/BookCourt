@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 style="color: white;">Casual Booking Form</h1>
+<style>
+    .center-container {
+        align-items: center;
+        text-align: center;
+    }
+    .submit-button {
+    background-color: #8c52ff;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 15%;
+  }
+
+  </style>
+
+<div class="center-container">
+    <h1 style="color: white; ">Casual Booking Form</h1> <br>
+    
+    <form method="post">
+        <input type="text" name="firstname" value="First Name"> <br>
+        <input type="text" name="lastname" value="Last Name"> <br> 
+        <input type="email" name="email" value="Email"> <br>
+        <input type="text" name="firstname" value="Court"> <br><br>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
 
 {% endblock %}

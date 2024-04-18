@@ -4,19 +4,31 @@ Logout from DS Badminton
 {% endblock %}
 
 {% block content %}
+
 <style>
     .center-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+        text-align: center;
+
     }
-    </style>
+    .login-button {
+      background-color: #8c52ff;
+      color: white;
+      border-radius: 10px;
+      padding: 5px;
+      width: 10%;
+  }
 
+  </style>
 <div class="center-container">
-<h1 style="color: white" class="main-heading">Logout</h1>
-<p style="color: white">You have successfully logged out. </p>
-<a href="{% url 'login' %}" style="color: #8c52ff" >Click here to login again</a>
+
+    <h1 style="color: white" class="main-heading">Logout</h1>
+    <p style="color: white">You have successfully logged out. </p>
+    <br>
+    <p style="color: white">Click here to login again</p>
+    <a href="{% url 'useraccount' %}">
+        <button class="login-button">Login</button>
+    </a>
+
+
 </div>
-
-
 {% endblock %}

@@ -58,7 +58,7 @@ DS Badminton - Home
                     {% if court.courtName == "Court 2 for 8-9" %}
                         {% if court.available == True %}
                             <a href="{% if user.is_authenticated %}{% url 'mbook' %}{% else %}{% url 'nbook' %}{% endif %}" style="color: white;">
-                                <div style="background-color: white; color: white;">select</div>
+                                <div style="background-color: white; color: white;">select {{court.id}}</div>
                             </a>
                         {% elif court.available == False %}
                         <div style="background-color: #8c52ff; color: #8c52ff;">booked</div>

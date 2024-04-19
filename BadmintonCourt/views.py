@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import court, MBooking, NBooking
+from .models import court, MBooking, NBooking, User
 # Create your views here.
 class HomeView(TemplateView):
     
@@ -9,13 +9,15 @@ class HomeView(TemplateView):
 
 class BookTableView(ListView):
     model = court
-    template_name = 'booking.html'
+    template_name = 'booking/booking.html'
 
-class MBookView(TemplateView):
-    template_name = 'mbookingForm.html'
+class MBookView(ListView):
+    model = User
+    template_name = 'booking/mbookingForm.html'
+
 
 class NBookView(TemplateView):
-    template_name = 'nbookingForm.html'
+    template_name = 'booking/nbookingForm.html'
 
 class UserAccountView(LoginRequiredMixin, ListView):
     model = MBooking

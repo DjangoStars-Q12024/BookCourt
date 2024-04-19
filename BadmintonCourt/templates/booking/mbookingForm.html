@@ -6,41 +6,53 @@
         align-items: center;
         text-align: center;
     }
-    .submit-button {
-    background-color: #8c52ff;
-    color: white;
-    border-radius: 10px;
-    padding: 5px;
-    width: 15%;
-  }
 
-  </style>
+    .submit-button {
+        background-color: #8c52ff;
+        color: white;
+        border-radius: 10px;
+        padding: 5px;
+        width: 15%;
+    }
+
+    hr {
+        border: none;
+        height: 1px;
+        background-color: white;
+        width: 80%;
+        margin: 20px auto;
+    }
+</style>
 
 <div class="center-container">
     <h1 style="color: white; ">Member Booking Form</h1> <br>
-    
+    <hr>
+
     <form action="{% url 'booking' %}">
         {% csrf_token %}
+        <p style="color: white;">Select a user from the dropdown menu</p>
         {% for group in user.groups.all %}
+        {% if group.name == 'Members' %}
+        <input type="text" disabled name="user" value="{{user.first_name}} {{user.last_name}}"> <br>
+        {% else %}
+
+        <select name="members" style="width: 16.5%;">
+            {% for user in object_list %}
+            {% for group in user.groups.all %}
+
             {% if group.name == 'Members' %}
-            <input type="text" disabled name="user" value="{{user.first_name}} {{user.last_name}}"> <br>
-            {% else %}
-
-            <select name="members" style="width: 16.5%;">
-                {% for user in object_list %}
-                    {% for group in user.groups.all %}
-                        {% if group.name == 'Members' %}
-                            <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
-                            {% endif %}
-                    {% endfor %}            
-                {% endfor %}
-            </select> <br><br>
-
+            <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
             {% endif %}
-        {% endfor %}
+            {% endfor %}
+            {% endfor %}
+        </select> <br><br>
 
-        <input type="text" disabled name="court" value="{{ court_name }}"> <br> <br>
-        <button class="submit-button" onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email for information about your booking.')">Submit</button>
+        {% endif %}
+        {% endfor %}
+        <p style="color: white;">Selected Court:</p> 
+        <input type="text" disabled name="court" value="{{ court_id }}"> <br> <br>
+        <button class="submit-button"
+            onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email for information about your booking.')">Submit</button>
 
     </form>
 </div>

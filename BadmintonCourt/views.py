@@ -15,9 +15,24 @@ class MBookView(ListView):
     model = User
     template_name = 'booking/mbookingForm.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        court_id = self.request.GET.get('court_id')
+        if court_id:
+            court_object = court.objects.get(pk=court_id)
+            context['court_name'] = court_object.courtName
+        return context
+
 
 class NBookView(TemplateView):
     template_name = 'booking/nbookingForm.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        court_id = self.request.GET.get('court_id')
+        if court_id:
+            court_object = court.objects.get(pk=court_id)
+            context['court_name'] = court_object.courtName
+        return context
 
 class UserAccountView(LoginRequiredMixin, ListView):
     model = MBooking

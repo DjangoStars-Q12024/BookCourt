@@ -5,6 +5,7 @@
     .center-container {
         align-items: center;
         text-align: center;
+        margin-bottom: 200px;
     }
     .submit-button {
     background-color: #8c52ff;
@@ -17,6 +18,9 @@
     margin-bottom: 10px;
     margin-right: 180px;
   }
+  label.first-name {
+    margin-left: 45px;
+  }
   label.last-name {
     margin-bottom: 10px;
     margin-right: 140px;
@@ -25,6 +29,10 @@
     margin-bottom: 10px;
     margin-right: 185px;
   }
+  label.court {
+    margin-bottom: 10px;
+    margin-left: 70px;
+  }
   hr {
     border: none;
     height: 1px;
@@ -32,8 +40,14 @@
     width: 80%; 
     margin: 20px auto; 
   }
- 
- 
+  .login-button {
+    background-color: #8c52ff;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 15%;
+  }
+
 
   </style>
 
@@ -43,7 +57,7 @@
     
     <form action="{% url 'booking' %}">
         <div class="form-group">
-            <label for="name" style="color: white;">Name:</label> <br>
+            <label for="first-name" class="first-name" style="color: white;">First Name:</label> <br>
             <input type="text" id="name" name="name">
         </div>
         <br>
@@ -57,10 +71,14 @@
             <input type="text" id="email" name="email">
         </div>
         <br>
+        <label for="court" class="court" style="color: white;">Selected Court:</label> <br>
         <input type="text" disabled name="court" value="{{ court_name }}"> <br><br>
         
         <button class="submit-button" onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email for information about your booking.')">Submit</button>
     </form>
+    <br><br>
+    <p style="color: white;">Got a login? Login here:</p>
+    <a href> <button class="login-button">Login</button></a>
 </div>
 
 {% endblock %}

@@ -30,12 +30,13 @@
 
     <form action="{% url 'booking' %}">
         {% csrf_token %}
-        <p style="color: white;">Select a user from the dropdown menu</p>
         {% for group in user.groups.all %}
         {% if group.name == 'Members' %}
+        <p style="color: white;">Name:</p>
         <input type="text" disabled name="user" value="{{user.first_name}} {{user.last_name}}"> <br>
         {% else %}
-
+        
+        <p style="color: white;">Select a user from the dropdown menu:</p>
         <select name="members" style="width: 16.5%;">
             {% for user in object_list %}
             {% for group in user.groups.all %}
@@ -49,11 +50,19 @@
 
         {% endif %}
         {% endfor %}
+        <br>
         <p style="color: white;">Selected Court:</p> 
-        <input type="text" disabled name="court" value="{{ court_id }}"> <br> <br>
-        <button class="submit-button"
-            onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email for information about your booking.')">Submit</button>
+        <input type="text" disabled name="court" value="{{ court_name }}"> <br> <br>
 
+        {% for group in user.groups.all %}
+        {% if group.name == 'Members' %}
+        <button class="submit-button"
+            onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email or account page for information about your booking.')">Submit</button>
+        {% else %}
+        <button class="submit-button"
+            onclick="alert('Booking created.')">Submit</button>
+        {% endif %}
+        {% endfor %}
     </form>
 </div>
 

@@ -6,10 +6,7 @@ Sign Up for DS Badminton
 {% block content %}
 
 <style>
-  .center-container {
-    position: absolute;
 
-  }
 
   .signup-button {
     background-color: #8c52ff;
@@ -24,7 +21,7 @@ Sign Up for DS Badminton
     color: white;
     border-radius: 10px;
     padding: 5px;
-    width: 30%;
+    width: 20%;
   }
 
   .button-container {
@@ -37,13 +34,13 @@ Sign Up for DS Badminton
 </style>
 
 <div class="center-container">
+  <button onclick="history.back()" class="goback-button">Go Back</button> <br><br>
   <h1 style="color: white">Sign Up</h1> <br>
   <div class="button-container">
     <form style="color: white ;" method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <br>
-      <button onclick="history.back()" class="goback-button">Go Back</button>
       <button type="submit" class="signup-button">Sign Up</button>
     </form>
   </div>

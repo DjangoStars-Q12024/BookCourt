@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .center-container {
+        align-items: center;
+        text-align: center;
+    }
+    .submit-button {
+    background-color: #8c52ff;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 15%;
+  }
+
+  </style>
+
+<div class="center-container">
+    <h1 style="color: white; ">Member Booking Form</h1> <br>
+    
+    <form action="{% url 'booking' %}">
+        {% csrf_token %}
+        {% for group in user.groups.all %}
+            {% if group.name == 'Members' %}
+            <input type="text" disabled name="user" value="{{user.first_name}} {{user.last_name}}"> <br>
+            {% else %}
+
+            <select name="members" style="width: 16.5%;">
+                {% for user in object_list %}
+                    {% for group in user.groups.all %}
+                        {% if group.name == 'Members' %}
+                            <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
+                            {% endif %}
+                    {% endfor %}            
+                {% endfor %}
+            </select> <br><br>
+
+            {% endif %}
+        {% endfor %}
+
+        <input type="text" disabled name="court" value="{{ court_id }}"> <br> <br>
+        <button class="submit-button" onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email for information about your booking.')">Submit</button>
+
+    </form>
+</div>
+
+{% endblock %}

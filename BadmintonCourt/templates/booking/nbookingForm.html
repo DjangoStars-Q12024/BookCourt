@@ -19,12 +19,13 @@
 <div class="center-container">
     <h1 style="color: white; ">Casual Booking Form</h1> <br>
     
-    <form method="post">
+    <form action="{% url 'booking' %}">
         <input type="text" name="firstname" value="First Name"> <br>
         <input type="text" name="lastname" value="Last Name"> <br> 
         <input type="email" name="email" value="Email"> <br>
-        <input type="text" name="firstname" value="Court"> <br><br>
-        <button type="submit" class="submit-button">Submit</button>
+        <input type="text" disabled name="court" value="Court"> <br><br>
+        
+        <button class="submit-button" onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email for information about your booking.')">Submit</button>
     </form>
 </div>
 

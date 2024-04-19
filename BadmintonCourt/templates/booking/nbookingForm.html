@@ -13,17 +13,51 @@
     padding: 5px;
     width: 15%;
   }
+  label {
+    margin-bottom: 10px;
+    margin-right: 180px;
+  }
+  label.last-name {
+    margin-bottom: 10px;
+    margin-right: 140px;
+  }
+  label.email {
+    margin-bottom: 10px;
+    margin-right: 185px;
+  }
+  hr {
+    border: none;
+    height: 1px;
+    background-color: white;
+    width: 80%; 
+    margin: 20px auto; 
+  }
+ 
+ 
 
   </style>
 
 <div class="center-container">
     <h1 style="color: white; ">Casual Booking Form</h1> <br>
+    <hr>
     
     <form action="{% url 'booking' %}">
-        <input type="text" name="firstname" value="First Name"> <br>
-        <input type="text" name="lastname" value="Last Name"> <br> 
-        <input type="email" name="email" value="Email"> <br>
-        <input type="text" disabled name="court" value="{{ court_name }}"> <br><br>
+        <div class="form-group">
+            <label for="name" style="color: white;">Name:</label> <br>
+            <input type="text" id="name" name="name">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="last-name" class="last-name" style="color: white;">Last Name:</label> <br>
+            <input type="text" id="last-name" name="last-name">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="email" class="email" style="color: white;">Email:</label> <br>
+            <input type="text" id="email" name="email">
+        </div>
+        <br>
+        <input type="text" disabled name="court" value="Court"> <br><br>
         
         <button class="submit-button" onclick="alert('Booking reserved! Please pay to confirm reservation. Check your email for information about your booking.')">Submit</button>
     </form>
